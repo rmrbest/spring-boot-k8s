@@ -4,6 +4,7 @@ import es.claranet.demo.domain.User;
 import es.claranet.demo.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,11 @@ public class UserService implements IUserService{
 
 
     @Override
-    public List<User> getList() {
-        return this.userRepository.findAll();
+    public List<String> getList() {
+        List<String> users = new ArrayList<>();
+        for( User user : this.userRepository.findAll()) {
+            users.add(user.toJSON());
+        }
+        return users;
     }
 }

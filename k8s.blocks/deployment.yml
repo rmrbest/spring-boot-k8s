@@ -14,5 +14,5 @@ spec:
       - image: 192.168.99.1:5000/rmrbest/spring-boot-playground
         name: spring-boot-container
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           name: http-server

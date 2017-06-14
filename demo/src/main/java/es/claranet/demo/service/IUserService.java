@@ -8,5 +8,5 @@ import java.util.List;
  * Created by raul on 12/06/17.
  */
 public interface IUserService {
-    List<User> getList();
+    List<String> getList();
 }

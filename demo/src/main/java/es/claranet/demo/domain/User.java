@@ -1,5 +1,9 @@
 package es.claranet.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -38,6 +42,20 @@ public class User {
 
     public String getSurname() {
         return surname;
+    }
+
+
+    @JsonIgnore
+    public String toJSON() {
+        ObjectMapper om = new ObjectMapper();
+        String rawJson = null;
+        try {
+            rawJson = om.writer().writeValueAsString(this);
+        }
+        catch (JsonProcessingException e) {
+
+        }
+        return rawJson;
     }
 
     @Override
