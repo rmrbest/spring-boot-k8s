@@ -9,14 +9,9 @@ node {
     stage('Build artifact') {
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
-        steps {
-            sh 'cd demo && mvn package'
-        }
-        post {
-            success {
-                junit 'target/surefire-reports/**/*.xml'
-            }
-        }
+
+        sh 'cd demo && mvn package'
+
         app.inside {
             sh 'echo "Tests passed"'
         }
