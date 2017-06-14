@@ -11,10 +11,7 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         sh 'cd demo && mvn package'
-
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
+        sh 'echo "Tests passed"'
     }
 
     stage('Build image') {
