@@ -28,4 +28,10 @@ public class UserListController {
     public String listUsers() throws Exception {
         return this.userService.getList().toString();
     }
+
+    @RequestMapping(value = {"", "/light"}, method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    @CrossOrigin(origins = "*")
+    public String light() throws Exception {
+        return "Veo la luz";
+    }
 }
