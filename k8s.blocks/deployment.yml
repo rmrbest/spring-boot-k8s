@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: spring-boot-blue-$BUILD
+  name: spring-boot-blue-<%= ENV['BUILD'] %>
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         type: webserver
-        color: $BUILD
+        color: <%= ENV['BUILD'] %>
     spec:
       containers:
-      - image: 192.168.99.1:5000/rmrbest/spring-boot-playground:$BUILD
+      - image: 192.168.99.1:5000/rmrbest/spring-boot-playground:<%= ENV['BUILD'] %>
         name: spring-boot-container
         ports:
         - containerPort: 8081
