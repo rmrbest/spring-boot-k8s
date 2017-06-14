@@ -19,6 +19,7 @@ node {
          * docker build on the command line */
 
         app = docker.build("rmrbest/spring-boot-playground")
+        sh 'export BUILD=${env.BUILD_NUMBER}'
     }
 
     stage('Push image') {
