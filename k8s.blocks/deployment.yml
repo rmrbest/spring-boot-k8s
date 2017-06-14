@@ -8,10 +8,10 @@ spec:
     metadata:
       labels:
         type: webserver
-        color: <%= ENV['BUILD'] %>
+        color: blue
     spec:
       containers:
-      - image: 192.168.99.1:5000/rmrbest/spring-boot-playground:<%= ENV['BUILD'] %>
+      - image: 192.168.99.1:5000/rmrbest/spring-boot-playground
         name: spring-boot-container
         ports:
         - containerPort: 8081
